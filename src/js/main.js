@@ -1,1 +1,1 @@
-import { random } from "./util";
+import { random } from './util';

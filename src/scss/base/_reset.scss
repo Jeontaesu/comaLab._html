@@ -84,7 +84,7 @@ video {
     border: 0;
     font: inherit;
     vertical-align: baseline;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
 }
 
@@ -105,7 +105,7 @@ td {
     padding: 0;
     font: inherit;
     vertical-align: baseline;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
 }
 /* // table border 문제로 인해 별도 설정 */
@@ -115,15 +115,15 @@ pre {
 html {
     font-size: 50%;
 
-    @include respond-to(small-phone) {
-        font-size: 62.5%;
-    }
-    @include respond-to(tablet) {
-        font-size: 56.25%;
-    }
-    @include respond-to(desktop) {
-        font-size: 62.5%;
-    }
+    // @include respond-to(small-phone) {
+    //     font-size: 62.5%;
+    // }
+    // @include respond-to(tablet) {
+    //     font-size: 56.25%;
+    // }
+    // @include respond-to(desktop) {
+    //     font-size: 62.5%;
+    // }
 }
 body {
 }
@@ -137,7 +137,7 @@ h6,
 input,
 textarea,
 select {
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -169,7 +169,7 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-    content: "";
+    content: '';
     content: none;
 }
 table {
@@ -216,13 +216,13 @@ textarea {
     &::placeholder {
         color: #a0a0a0;
     }
-    &[type="text"]:disabled {
+    &[type='text']:disabled {
         background-color: rgba(240, 240, 240, 1);
         -webkit-background-color: rgba(240, 240, 240, 1);
         opacity: 1;
         -webkit-opacity: 1;
     }
-    &[type="text"]:read-only {
+    &[type='text']:read-only {
         background-color: rgba(240, 240, 240, 1);
         -webkit-background-color: rgba(240, 240, 240, 1);
         opacity: 1;
