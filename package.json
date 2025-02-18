@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "babelify": "^10.0.0",
+        "gift": "^0.10.2",
         "gulp-bro": "^2.0.0",
         "gulp-cli": "^3.0.0",
         "gulp-image": "^6.3.1",
