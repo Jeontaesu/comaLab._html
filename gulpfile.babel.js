@@ -85,7 +85,7 @@ const prepare = gulp.series(clean, img); // [] 제거
 
 const assets = gulp.series(pug, styles, js); // [] 제거
 
-const postDev = gulp.parallel([webserver, watch]);
+const postDev = gulp.parallel(webserver, watch);
 
 export const build = gulp.series(prepare, assets);
 export const dev = gulp.series(build, postDev);
