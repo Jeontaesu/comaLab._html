@@ -1,8 +1,70 @@
 extends layout/layout.pug
 
 block content 
-  -const indexData = [{depth1: '메인', depth2:'메인', href:''}]
+  -const indexData = [{depth1: '메인', depth2: '메인', href: './page/main.html', page: 'main.html', desc: '', progress: 'comp'},{depth1: '메인', depth2: '메인', href: './page/main.html', page: 'main.html', desc: '', progress: 'comp'},]
 
   #container
     .listUp
-      strong.listUp__tit GULP&amp;PUG Study
+      strong.listUp__tit comaLab Study
+      .listUp__cont 
+        ul.listUp__list
+          li.listUp__item 
+            span.listUp__txt 총 페이지
+              strong.listUp__strong(data-js-index="allTxt")
+          li.listUp__item 
+            span.listUp__txt 완료
+              strong.listUp__strong(data-js-index="compTxt") 
+          li.listUp__item 
+            span.listUp__txt 진행률
+              strong.listUp__strong   
+                em(data-js-index="compPerTxt")
+        table.listUp__table 
+          colgroup 
+            col(width="20%")
+            col(width="20%")
+            col(width="25%")
+            col(width="100px")
+            col
+          thead 
+            tr
+              th.listUp__th 1 Depth 
+              th.listUp__th 2 Depth 
+              th.listUp__th files 
+              th.listUp__th progress 
+              th.listUp__th Desc
+          tbody 
+            each item in indexData
+              tr(class=item.progress, data-js-index='line')
+                if item.depth1
+                  if item.row 
+                    td.listUp__td(class=item.whiteBg? 'whiteBg' : '', rowspan=item.row)
+                  else 
+                    td.listUp__td 
+                      span #{item.depth1}
+                td.listUp__td 
+                  span #{item.depth2}
+                td.listUp__td   
+                  a(href=item.href, target="_blank") #{item.page}
+                td.listUp__td 
+                  if item.progress == 'comp'
+                    span.compTxt(data-js-index="comp") 완료
+                  else if item.progress === 'ing'
+                    span.ingTxt(data-js-index='ing') 진행중
+                  else 
+                    span 
+                td.listUp__td 
+                  if item.progress === 'undetermined'
+                    span.undeterminedTxt #{item.desc} 
+                  else 
+                    span #{item.desc}
+  script.
+    const $complete = $("[data-js-index='comp']"); // 따옴표 수정
+    const $completeTxt = $("[data-js-index='compTxt']"); // 오타 및 따옴표 수정
+    const $completePerTxt = $("[data-js-index='compPerTxt']");
+    const $allTxt = $("[data-js-index='allTxt']");
+    const AllPage = $("[data-js-index='line']").length;
+    const CompleteAmout = $complete.length;
+    const CompletePercent = CompleteAmout / AllPage * 100;
+    $completeTxt.text(CompleteAmout);
+    $completePerTxt.text(CompletePercent.toFixed(1) + '%');
+    $allTxt.text(AllPage);
