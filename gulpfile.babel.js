@@ -33,6 +33,10 @@ const routes = {
         src: 'src/js/main.js',
         dest: 'dist/js',
     },
+    libs: {
+        src: 'src/js/libs/*',
+        dest: 'dist/js/libs',
+    },
 };
 
 const pug = () =>
@@ -72,6 +76,8 @@ const js = () =>
         )
         .pipe(gulp.dest(routes.js.dest));
 
+const libs = () => gulp.src(routes.libs.src).pipe(gulp.dest(routes.libs.dest));
+
 const ghdeploy = () => gulp.src('dist/**/*').pipe(ghPages());
 
 const watch = () => {
@@ -79,11 +85,12 @@ const watch = () => {
     gulp.watch(routes.img.src, img);
     gulp.watch(routes.scss.watch, styles);
     gulp.watch(routes.js.watch, js);
+    gulp.watch(routes.libs.src, libs);
 };
 
 const prepare = gulp.series(clean, img); // [] 제거
 
-const assets = gulp.series(pug, styles, js); // [] 제거
+const assets = gulp.series(pug, styles, js, libs); // [] 제거
 
 const postDev = gulp.parallel(webserver, watch);
 
