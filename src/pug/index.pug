@@ -1,11 +1,15 @@
 extends layout/layout.pug
 
 block content 
-  -const indexData = [{depth1: '메인', depth2: '메인', href: './page/main.html', page: 'main.html', desc: '', progress: 'comp'},{depth1: '메인', depth2: '메인', href: './page/main.html', page: 'main.html', desc: '', progress: 'comp'},]
+  -const indexData1 = [{depth1: '최석-comaLab01', depth2: '스터디내용', href: './page/comaLab01.html', page: 'comaLab01.html', desc: '', progress: 'comp'}]
+  -const indexData2 = [{depth1: '전태수-comaLab02', depth2: '스터디내용', href: './page/comaLab02.html', page: 'comaLab02.html', desc: '', progress: 'comp'}]
+  -const indexData3 = [{depth1: '이찬용-comaLab03', depth2: '스터디내용', href: './page/comaLab03.html', page: 'comaLab03.html', desc: '', progress: 'comp'}]
+  -const indexData4 = [{depth1: '최정규-comaLab04', depth2: '스터디내용', href: './page/comaLab04.html', page: 'comaLab04.html', desc: '', progress: 'comp'}]
+  -const indexData5 = [{depth1: '김태리-comaLab05', depth2: '스터디내용', href: './page/comaLab05.html', page: 'comaLab05.html', desc: '', progress: 'comp'}]
 
   #container
     .listUp
-      strong.listUp__tit comaLab Study
+      strong.listUp__tit HTML&PUG Study
       .listUp__cont 
         ul.listUp__list
           li.listUp__item 
@@ -27,13 +31,173 @@ block content
             col
           thead 
             tr
-              th.listUp__th 1 Depth 
-              th.listUp__th 2 Depth 
+              th.listUp__th 최석-comaLab01
+              th.listUp__th Study Contents
               th.listUp__th files 
               th.listUp__th progress 
               th.listUp__th Desc
           tbody 
-            each item in indexData
+            each item in indexData1
+              tr(class=item.progress, data-js-index='line')
+                if item.depth1
+                  if item.row 
+                    td.listUp__td(class=item.whiteBg? 'whiteBg' : '', rowspan=item.row)
+                  else 
+                    td.listUp__td 
+                      span #{item.depth1}
+                td.listUp__td 
+                  span #{item.depth2}
+                td.listUp__td   
+                  a(href=item.href, target="_blank") #{item.page}
+                td.listUp__td 
+                  if item.progress == 'comp'
+                    span.compTxt(data-js-index="comp") 완료
+                  else if item.progress === 'ing'
+                    span.ingTxt(data-js-index='ing') 진행중
+                  else 
+                    span 
+                td.listUp__td 
+                  if item.progress === 'undetermined'
+                    span.undeterminedTxt #{item.desc} 
+                  else 
+                    span #{item.desc}
+
+        table.listUp__table 
+          colgroup 
+            col(width="20%")
+            col(width="20%")
+            col(width="25%")
+            col(width="100px")
+            col
+          thead 
+            tr
+              th.listUp__th 전태수-comaLab02
+              th.listUp__th Study Contents
+              th.listUp__th files 
+              th.listUp__th progress 
+              th.listUp__th Desc
+          tbody 
+            each item in indexData2
+              tr(class=item.progress, data-js-index='line')
+                if item.depth1
+                  if item.row 
+                    td.listUp__td(class=item.whiteBg? 'whiteBg' : '', rowspan=item.row)
+                  else 
+                    td.listUp__td 
+                      span #{item.depth1}
+                td.listUp__td 
+                  span #{item.depth2}
+                td.listUp__td   
+                  a(href=item.href, target="_blank") #{item.page}
+                td.listUp__td 
+                  if item.progress == 'comp'
+                    span.compTxt(data-js-index="comp") 완료
+                  else if item.progress === 'ing'
+                    span.ingTxt(data-js-index='ing') 진행중
+                  else 
+                    span 
+                td.listUp__td 
+                  if item.progress === 'undetermined'
+                    span.undeterminedTxt #{item.desc} 
+                  else 
+                    span #{item.desc}
+
+        table.listUp__table 
+          colgroup 
+            col(width="20%")
+            col(width="20%")
+            col(width="25%")
+            col(width="100px")
+            col
+          thead 
+            tr
+              th.listUp__th 이찬용-comaLab03
+              th.listUp__th Study Contents
+              th.listUp__th files 
+              th.listUp__th progress 
+              th.listUp__th Desc
+          tbody 
+            each item in indexData3
+              tr(class=item.progress, data-js-index='line')
+                if item.depth1
+                  if item.row 
+                    td.listUp__td(class=item.whiteBg? 'whiteBg' : '', rowspan=item.row)
+                  else 
+                    td.listUp__td 
+                      span #{item.depth1}
+                td.listUp__td 
+                  span #{item.depth2}
+                td.listUp__td   
+                  a(href=item.href, target="_blank") #{item.page}
+                td.listUp__td 
+                  if item.progress == 'comp'
+                    span.compTxt(data-js-index="comp") 완료
+                  else if item.progress === 'ing'
+                    span.ingTxt(data-js-index='ing') 진행중
+                  else 
+                    span 
+                td.listUp__td 
+                  if item.progress === 'undetermined'
+                    span.undeterminedTxt #{item.desc} 
+                  else 
+                    span #{item.desc}
+
+        table.listUp__table 
+          colgroup 
+            col(width="20%")
+            col(width="20%")
+            col(width="25%")
+            col(width="100px")
+            col
+          thead 
+            tr
+              th.listUp__th 최정규-comaLab04
+              th.listUp__th Study Contents
+              th.listUp__th files 
+              th.listUp__th progress 
+              th.listUp__th Desc
+          tbody 
+            each item in indexData4
+              tr(class=item.progress, data-js-index='line')
+                if item.depth1
+                  if item.row 
+                    td.listUp__td(class=item.whiteBg? 'whiteBg' : '', rowspan=item.row)
+                  else 
+                    td.listUp__td 
+                      span #{item.depth1}
+                td.listUp__td 
+                  span #{item.depth2}
+                td.listUp__td   
+                  a(href=item.href, target="_blank") #{item.page}
+                td.listUp__td 
+                  if item.progress == 'comp'
+                    span.compTxt(data-js-index="comp") 완료
+                  else if item.progress === 'ing'
+                    span.ingTxt(data-js-index='ing') 진행중
+                  else 
+                    span 
+                td.listUp__td 
+                  if item.progress === 'undetermined'
+                    span.undeterminedTxt #{item.desc} 
+                  else 
+                    span #{item.desc}
+
+        table.listUp__table 
+          colgroup 
+            col(width="20%")
+            col(width="20%")
+            col(width="25%")
+            col(width="100px")
+            col
+          thead 
+            tr
+              th.listUp__th 김태리-comaLab05
+              th.listUp__th Study Contents
+              th.listUp__th files 
+              th.listUp__th progress 
+              th.listUp__th Desc
+          tbody 
+            each item in indexData5
               tr(class=item.progress, data-js-index='line')
                 if item.depth1
                   if item.row 
@@ -58,8 +222,8 @@ block content
                   else 
                     span #{item.desc}
   script.
-    const $complete = $("[data-js-index='comp']"); // 따옴표 수정
-    const $completeTxt = $("[data-js-index='compTxt']"); // 오타 및 따옴표 수정
+    const $complete = $("[data-js-index='comp']");
+    const $completeTxt = $("[data-js-index='compTxt']");
     const $completePerTxt = $("[data-js-index='compPerTxt']");
     const $allTxt = $("[data-js-index='allTxt']");
     const AllPage = $("[data-js-index='line']").length;

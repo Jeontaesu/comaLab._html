@@ -2,15 +2,12 @@
 @use './abstracts/var';
 @use './layouts/layout';
 
-body {
-    // background: var.$red;
-}
-
 .listUp {
     padding: 60px 40px;
     &__tit {
         font-size: 3.6rem;
-        font-weight: 700;
+        font-weight: 800;
+        color: var.$color-blue-60;
     }
     &__cont {
         margin-top: 2.2rem;
@@ -39,6 +36,9 @@ body {
         border-top: 1.5px solid #e9e9e9;
         width: 100%;
         color: #111;
+        & + & {
+            margin-top: 10rem;
+        }
     }
     &__th {
         padding: 2rem;
@@ -65,7 +65,7 @@ body {
         .listUp__td {
             color: var.$color-blue-50;
             font-weight: 600;
-            background-color: var.$color-blue-10;
+            background-color: var.$color-gray-60;
         }
     }
 }

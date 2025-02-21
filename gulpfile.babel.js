@@ -9,7 +9,11 @@ import autoPrefixer from 'gulp-autoprefixer';
 import miniCSS from 'gulp-csso';
 import bro from 'gulp-bro';
 import babelify from 'babelify';
+<<<<<<< HEAD
 import ghPages from 'gulp-gh-pages';
+=======
+import { exec } from 'child_process';
+>>>>>>> 26812e4 (deploy 관련 셋팅 수정)
 
 const sass = gulpSass(dartSass);
 
@@ -78,7 +82,17 @@ const js = () =>
 
 const libs = () => gulp.src(routes.libs.src).pipe(gulp.dest(routes.libs.dest));
 
+<<<<<<< HEAD
 const ghdeploy = () => gulp.src('dist/**/*').pipe(ghPages());
+=======
+const ghdeploy = (cb) => {
+    exec('gh-pages -d dist', (err, stdout, stderr) => {
+        console.log(stdout);
+        console.error(stderr);
+        cb(err);
+    });
+};
+>>>>>>> 26812e4 (deploy 관련 셋팅 수정)
 
 const watch = () => {
     gulp.watch(routes.pug.watch, pug);
@@ -96,4 +110,8 @@ const postDev = gulp.parallel(webserver, watch);
 
 export const build = gulp.series(prepare, assets);
 export const dev = gulp.series(build, postDev);
+<<<<<<< HEAD
 export const deploy = gulp.series(build, ghdeploy, clean);
+=======
+export const deploy = gulp.series(clean, build, ghdeploy);
+>>>>>>> 26812e4 (deploy 관련 셋팅 수정)
